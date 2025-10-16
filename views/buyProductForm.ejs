@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Buy Product</h1>
+    
+        <div style="color: red;">
+            <ul>
+                <% if (errors && errors.length) { %>
+                    <% errors.forEach(error => { %>
+                        <li><%= error %></li>
+                    <% }) %>
+                <% } %>
+            </ul>
+        </div>
+    
+    <form action="/buy" method="POST">
+        <input type="hidden" name="productId" value="<%= slecetedProductId %>">
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" value="<%= dto ? dto.name : '' %>">
+        </div>
+        <div>
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" value="<%= dto ? dto.address : '' %>">
+        </div>
+        <div>
+            <label for="billing">Billing:</label>
+            <input type="text" id="billing" name="billing" value="<%= dto ? dto.billing : '' %>">
+        </div>
+        <div>
+            <label for="coupon">Coupon:</label>
+            <input type="text" id="coupon" name="coupon" value="<%= dto ? dto.coupon : '' %>">
+        </div>
+        <div>
+            <label for="cardNumber">Card Number:</label>
+            <input type="text" id="cardNumber" name="cardNumber" value="">
+        </div>
+        <div>
+            <label for="experation">Expiration Date (MM/YY):</label>
+            <input type="text" id="experation" name="experation" value="">
+        </div>
+        <div>
+            <label for="cvc">CVC:</label>
+            <input type="text" id="cvc" name="cvc" value="">
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

@@ -7,5 +7,21 @@
 </head>
 <body>
   <h1><%= message %></h1>
+  <div>
+    <h2>Products</h2>
+    <ul>
+      <% products.forEach(product => { %>
+        <li>
+          <h3><%= product.name %></h3>
+          <img src="<%= product.imageUrl %>" alt="<%= product.name %>" width="150" height="150">
+          <form action="/buy" method="GET">
+            <input type="hidden" name="productId" value="<%= product.id %>">
+            <button type="submit">Buy</button>
+
+          </form>
+          
+        </li>
+      <% }) %>
+
 </body>
 </html>
